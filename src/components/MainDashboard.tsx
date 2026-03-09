@@ -14,22 +14,21 @@ export default function MainDashboard() {
   const fetchRealData = async () => {
     setIsSyncing(true);
     try {
-      // User's MetaMask Wallet
-      const walletAddress = "0x14f32f1173d4fa8233de9853411318ad62d24795689b5fbca999d0187850188";
-      // Polygon Alchemy RPC
-      const rpcUrl = "https://polygon-mainnet.g.alchemy.com/v2/tz9Za3l_09rgB3mflYQWf";
+      const response = await fetch('/api/balance', { cache: 'no-store' });
+      const data = await response.json();
 
-      const provider = new ethers.JsonRpcProvider(rpcUrl);
-      const balanceWei = await provider.getBalance(walletAddress);
-
-      const balancePol = ethers.formatEther(balanceWei);
-      setBalance(`${parseFloat(balancePol).toFixed(4)} POL`);
+      if (data.balance) {
+        setBalance(data.balance);
+      } else {
+        setBalance("Error");
+        console.error("Balance Error:", data.error, data.details);
+      }
 
       // Profit is calculated later via actual Polymarket CTF logs, zeroed for now since it's fresh
       setProfit("+$0.00");
       setLastUpdate(new Date().toLocaleTimeString());
     } catch (e) {
-      console.error("Failed to fetch balance", e);
+      console.error("Failed to fetch balance route", e);
       setBalance("Error");
     } finally {
       setIsSyncing(false);
