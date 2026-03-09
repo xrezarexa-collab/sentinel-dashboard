@@ -10,7 +10,7 @@ export default function LoginPage({ onLogin }: { onLogin: () => void }) {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === "rezarexa@gmail.com" && password === "Rexa1980") {
+    if (email.trim().toLowerCase() === "rezarexa@gmail.com" && password.trim() === "Rexa1980") {
       onLogin();
     } else {
       setError("Invalid Credentials. Access Denied.");
