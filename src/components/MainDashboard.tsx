@@ -118,7 +118,7 @@ export default function MainDashboard() {
               <p className="text-gray-600">Proxy connecting to OpenClaw API Gateway...</p>
             </div>
             <iframe
-              src="/openclaw"
+              src="/openclaw/"
               className="w-full h-full border-0 relative z-10 mix-blend-screen opacity-90 block"
               title="OpenClaw Dashboard"
             />
