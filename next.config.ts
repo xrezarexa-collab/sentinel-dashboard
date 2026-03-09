@@ -5,8 +5,12 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: '/openclaw',
+        destination: 'http://95.111.247.105:18789',
+      },
+      {
         source: '/openclaw/:path*',
-        destination: 'http://95.111.247.105:8080/:path*',
+        destination: 'http://95.111.247.105:18789/:path*',
       },
     ];
   },

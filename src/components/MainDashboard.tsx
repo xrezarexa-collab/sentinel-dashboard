@@ -107,7 +107,7 @@ export default function MainDashboard() {
               <h2 className="font-semibold text-lg">OpenClaw Engine View</h2>
             </div>
             <div className="flex items-center gap-3">
-              <a href="http://95.111.247.105:8080" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition text-sm flex items-center gap-1">
+              <a href="http://95.111.247.105:18789" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition text-sm flex items-center gap-1">
                 <ExternalLink className="w-4 h-4" /> Go to Gateway
               </a>
               <span className="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full border border-blue-500/30">Proxied Route: /openclaw</span>
